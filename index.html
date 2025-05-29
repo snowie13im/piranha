@@ -300,7 +300,7 @@
     .camera-icon {
       position: absolute;
       inset: 0;
-      background: rgba(255, 255, 255, 0.671); /* dark overlay */
+      background: rgba(255, 255, 255, 0.671);
       color: white;
       display: flex;
       align-items: center;
@@ -499,7 +499,7 @@
       </div>
 
       <div class="mobile-panel" id="panel-profile" style="display: none;">
-        <div class="profile-content"> <!-- 👈 new wrapper -->
+        <div class="profile-content">
           <div class="profile-pic-wrapper">
             <div class="profile-pic-container" onclick="document.getElementById('profile-pic-input').click()">
               <img src="images/piranha-avatar.png" alt="Profile" class="profile-pic" id="profile-pic" />
@@ -570,7 +570,7 @@
       const statusEl = document.getElementById("connection-status");
 
       const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), 3000); // fail in 3s
+      const timeout = setTimeout(() => controller.abort(), 3000); 
 
       try {
         const res = await fetch(`${espUrl}/dados`, {
@@ -607,7 +607,6 @@
             statusEl.classList.remove("connected");
             disconnectNotified = true;
           }
-          // Don't do anything else — already disconnected
         } else {
           statusEl.textContent = "🔄 Connecting...";
           statusEl.classList.remove("disconnected", "connected");
@@ -622,7 +621,7 @@
       const panel = document.getElementById(`panel-${name}`);
       if (panel) panel.style.display = 'flex';
       if (name === 'pool') {
-        setTimeout(drawMiniMap, 200); // give layout time to render
+        setTimeout(drawMiniMap, 200);
       }
     }
 
@@ -724,18 +723,16 @@
 
     function logoutUser() {
       alert("Logging out... (you wish)");
-      // Add real logout logic here later
+      // faltam merdas aqui 
     }
 
     function drawMiniMap() {
       const canvas = document.getElementById("mini-mapa");
-      if (!canvas) return; // Maybe panel isn't shown yet
-
+      if (!canvas) return;
       const ctx = canvas.getContext("2d");
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.fillStyle = "green";
-
-      // Scaled down dummy points
+      
       const pontos = [
         {x: 10, y: 10}, {x: 30, y: 30}, {x: 50, y: 50},
         {x: 70, y: 70}, {x: 90, y: 90}
